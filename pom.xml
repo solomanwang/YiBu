@@ -12,6 +12,7 @@
         <module>gateway</module>
         <module>oauth</module>
         <module>goods</module>
+        <module>sdk</module>
     </modules>
 
     <packaging>pom</packaging>
