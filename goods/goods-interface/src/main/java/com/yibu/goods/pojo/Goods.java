@@ -1,5 +1,8 @@
 package com.yibu.goods.pojo;
 
+import com.baomidou.mybatisplus.annotation.EnumValue;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.yibu.entity.BaseEntity;
 import com.yibu.goods.enums.GoodsStatusEnum;
 import lombok.Data;
 
@@ -10,10 +13,12 @@ import java.math.BigDecimal;
  * Date      2020/5/11 23:50
  * Describe:
  */
+
 @Data
-public class Goods {
-    private Long id;
+@TableName("goods")
+public class Goods extends BaseEntity {
     private String name;
     private BigDecimal price;
+    @EnumValue
     private GoodsStatusEnum statusEnum;
 }
