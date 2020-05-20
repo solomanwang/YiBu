@@ -1,6 +1,6 @@
 package com.yibu.goods.pojo;
 
-import com.baomidou.mybatisplus.annotation.EnumValue;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.yibu.entity.BaseEntity;
 import com.yibu.goods.enums.GoodsStatusEnum;
@@ -19,6 +19,6 @@ import java.math.BigDecimal;
 public class Goods extends BaseEntity {
     private String name;
     private BigDecimal price;
-    @EnumValue
+    @TableField("status")
     private GoodsStatusEnum statusEnum;
 }

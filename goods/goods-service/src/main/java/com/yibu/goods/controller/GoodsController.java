@@ -5,12 +5,7 @@ import com.yibu.goods.pojo.Goods;
 import com.yibu.goods.service.GoodsService;
 import com.yibu.web.dto.HttpResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.math.BigDecimal;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author wzq
@@ -25,17 +20,28 @@ public class GoodsController {
     private GoodsService goodsService;
 
     @GetMapping
-    public String get(){
-        return "成功";
+    public HttpResult<Goods> getGoodsById(long id){
+        return HttpResult.success(goodsService.getById(id));
     }
 
-    @GetMapping("save")
-    public HttpResult<Goods> saveGoods(){
-        Goods goods = new Goods();
-        goods.setName("测试机");
-        goods.setPrice(new BigDecimal(12.5));
+    @PostMapping
+    public HttpResult<Goods> saveGoods(@RequestBody Goods goods){
         goods.setStatusEnum(GoodsStatusEnum.OFF_SHELF);
         boolean save = goodsService.save(goods);
+        if (save){
+            return HttpResult.success(goods);
+        }
+        return HttpResult.error("保存失败");
+    }
+    @DeleteMapping
+    public HttpResult deleteGoodsById(Long id){
+        goodsService.removeById(id);
+        return HttpResult.success();
+    }
+
+    @PutMapping
+    public HttpResult<Goods> updateGoods(@RequestBody Goods goods){
+        boolean save = goodsService.updateById(goods);
         if (save){
             return HttpResult.success(goods);
         }
