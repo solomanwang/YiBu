@@ -18,5 +18,7 @@ public class WErrorException extends RuntimeException{
 
     private String msg;
 
-
+    public WErrorException(String key) {
+        this.key = key;
+    }
 }

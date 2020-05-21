@@ -26,7 +26,7 @@ public class GoodsController {
 
     @PostMapping
     public HttpResult<Goods> saveGoods(@RequestBody Goods goods){
-        goods.setStatusEnum(GoodsStatusEnum.OFF_SHELF);
+//        goods.setStatusEnum(GoodsStatusEnum.OFF_SHELF);
         boolean save = goodsService.save(goods);
         if (save){
             return HttpResult.success(goods);

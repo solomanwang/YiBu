@@ -1,10 +1,13 @@
 package com.yibu.goods.enums;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baomidou.mybatisplus.annotation.EnumValue;
+import com.wang.exception.WErrorException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -40,6 +43,10 @@ public enum GoodsStatusEnum {
     }
 
     public static GoodsStatusEnum findByCode(int code){
-        return lookup.get(code);
+        GoodsStatusEnum statusEnum = lookup.get(code);
+        if (ObjectUtil.isNull(statusEnum)){
+            throw new WErrorException("NOT_FOUND","没找到对应对象");
+        }
+        return statusEnum;
     }
 }

@@ -10,9 +10,20 @@
 #          order: 2 # 路由优先级，数字越小代表路由的优先级越高
 #          predicates:  # 断言 条件判断，返回值市Boolean 转发请求满足的条件
 #            - Path=/user/**
+#          filters:
+#            - Auth
 #        - id: auth-route
 #          uri: lb://auth-service
 #          predicates:
 #            - Path=/auth/**
+#        - id: goods-route
+#          uri: lb://goods-service
+#          predicates:
+#            - Path=/goods/**
 #server:
 #  port: 10086
+#yibu:
+#  auth:
+#    jwt:
+#      pubkeyPath: D:\\rsa\\yibu\\rsa.pub
+#      cookieName: YIBU_TOKEN

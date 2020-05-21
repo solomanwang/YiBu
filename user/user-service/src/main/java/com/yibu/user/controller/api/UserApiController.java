@@ -1,4 +1,4 @@
-package com.yibu.user.controller;
+package com.yibu.user.controller.api;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
