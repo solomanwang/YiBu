@@ -132,4 +132,14 @@ public class Constants {
      * 验证ip地址的正则
      */
     public static final String IP_MATCHES = "((?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){3}(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d))";
+
+    /**
+     * 逻辑删除 有效
+     * */
+    public static final Integer VALID = 0;
+
+    /**
+     * 逻辑删除 无效
+     * */
+    public static final Integer INVALID = 1;
 }

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -21,11 +22,12 @@ public class BaseEntity implements Serializable {
     * @TableField(fill = FieldFill.INSERT) 自动填充数据
     */
     @TableField(fill = FieldFill.INSERT)
-    protected Date createTime;
-    @TableField(fill = FieldFill.UPDATE)
-    protected Date updateTime;
+    protected LocalDateTime createTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    protected LocalDateTime updateTime;
     /**
      *  @TableLogic 该注解表示逻辑删除
      * */
+    @TableField(fill = FieldFill.INSERT)
     private Integer deleted;
 }

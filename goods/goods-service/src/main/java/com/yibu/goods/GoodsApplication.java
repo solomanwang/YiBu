@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * Date      2020/5/11 23:36
  * Describe:
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.yibu")
 @EnableDiscoveryClient
 @MapperScan("com.yibu.goods.mapper")
 public class GoodsApplication {
