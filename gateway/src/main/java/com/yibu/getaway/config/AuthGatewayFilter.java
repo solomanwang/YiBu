@@ -29,6 +29,10 @@ public class AuthGatewayFilter implements GatewayFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
+        // 对路径放行
+        if (properties.getNotIntercepts().contains(request.getPath().value())){
+            return chain.filter(exchange);
+        }
         // 获取token信息
         MultiValueMap<String, HttpCookie> cookies = request.getCookies();
         if (CollectionUtils.isEmpty(cookies)){

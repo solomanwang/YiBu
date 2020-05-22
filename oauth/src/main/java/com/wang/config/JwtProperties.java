@@ -3,7 +3,6 @@ package com.wang.config;
 import com.wang.util.RsaUtils;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -20,25 +19,25 @@ import java.security.PublicKey;
 @Data
 @Slf4j
 @Component
-//@ConfigurationProperties(prefix = "yibu.auth.jwt")
+@ConfigurationProperties(prefix = "yibu.auth.jwt")
 public class JwtProperties {
 
     /**
      * 秘钥
      * */
-    @Value("${yibu.auth.jwt.secret}")
+//    @Value("${yibu.auth.jwt.secret}")
     private String secret;
 
-    @Value("${yibu.auth.jwt.pubkeyPath}")
+//    @Value("${yibu.auth.jwt.pubkeyPath}")
     private String pubkeyPath;
 
-    @Value("${yibu.auth.jwt.prikeyPath}")
+//    @Value("${yibu.auth.jwt.prikeyPath}")
     private String prikeyPath;
 
-    @Value("${yibu.auth.jwt.expire}")
+//    @Value("${yibu.auth.jwt.expire}")
     private int expire;
 
-    @Value("${yibu.auth.jwt.cookieName}")
+//    @Value("${yibu.auth.jwt.cookieName}")
     private String cookieName;
 
     private PublicKey publicKey;
@@ -48,6 +47,7 @@ public class JwtProperties {
     @PostConstruct
     public void init(){
         try {
+            log.info("公钥路径：{}",pubkeyPath);
             File pubkey = new File(pubkeyPath);
             File prikey = new File(prikeyPath);
             if (!pubkey.exists() || !prikey.exists()){

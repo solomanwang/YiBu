@@ -5,8 +5,6 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.stereotype.Component;
 
-import java.lang.ref.PhantomReference;
-
 /**
  * @author wzq
  * @date 2020/5/21

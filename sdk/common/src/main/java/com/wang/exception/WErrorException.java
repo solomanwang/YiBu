@@ -10,7 +10,6 @@ import lombok.Setter;
  * @description: 自定义错误异常
  */
 @Getter
-@Setter
 @AllArgsConstructor
 public class WErrorException extends RuntimeException{
 

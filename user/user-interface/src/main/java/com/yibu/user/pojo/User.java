@@ -1,12 +1,11 @@
 package com.yibu.user.pojo;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.yibu.entity.BaseEntity;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 /**
  * @author wzq
@@ -23,6 +22,7 @@ public class User extends BaseEntity {
     /**
      * 用户名
      */
+    @NotNull(message = "用户名不能为空")
     private String username;
     /**
      * 密码
@@ -56,5 +56,5 @@ public class User extends BaseEntity {
      * 生日
      */
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date birth;
+    private LocalDate birth;
 }

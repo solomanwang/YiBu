@@ -3,11 +3,12 @@ package com.yibu.getaway.config;
 import com.wang.util.RsaUtils;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.security.PublicKey;
+import java.util.Set;
 
 /**
  * @author wzq
@@ -17,15 +18,18 @@ import java.security.PublicKey;
 @Data
 @Slf4j
 @Component
+@ConfigurationProperties(prefix = "yibu.auth.jwt")
 public class JwtProperties {
 
-    @Value("${yibu.auth.jwt.pubkeyPath}")
+//    @Value("${yibu.auth.jwt.pubkeyPath}")
     private String pubkeyPath;
 
-    @Value("${yibu.auth.jwt.cookieName}")
+//    @Value("${yibu.auth.jwt.cookieName}")
     private String cookieName;
 
     private PublicKey publicKey;
+
+    private Set<String> notIntercepts;
 
     @PostConstruct
     public void init(){
