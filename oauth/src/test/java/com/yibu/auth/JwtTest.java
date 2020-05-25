@@ -2,7 +2,6 @@ package com.yibu.auth;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
-import com.wang.util.DateUtils;
 import com.wang.util.JwtUtils;
 import com.wang.util.RsaUtils;
 import org.junit.Before;
@@ -31,7 +30,7 @@ public class JwtTest {
 
     @Test
     public void testRsa() throws Exception {
-        RsaUtils.generateKey(pubKeyPath, priKeyPath, "234");
+        RsaUtils.generateKey(pubKeyPath, priKeyPath, "sf3423jsdf#3$@FDS32");
     }
 
     @Before
@@ -52,7 +51,7 @@ public class JwtTest {
 
     @Test
     public void testParseToken() throws Exception {
-        String token = "eyJhbGciOiJSUzI1NiJ9.eyJpZCI6NCwidXNlcm5hbWUiOiLlpKfmmI4iLCJleHAiOjE1OTAwNTQ3MDV9.O4URRlu_mciohYgCET_oOybUqZEi_m2hv7JnJf6b-zAsOl2FVUIK1MycLm1SItd_memJWU8XMVY-Jm7_hHAjFWDLoXUiI9lR7OTg8-HsqNQyB03Ds_fPURycoTIYJ5DY01z1M5-e_9nmJDj_apTKG4iIsmb9kf5pexeCFTtuidSd0P2JfQ-AuDprqAxU8A9PR9NmzGuc92byO7vP60T5YTjZzl4daDSaO51Goii45TKmxEpsgl3D9k2_JHcyvBX36MRrbG8MtprM8zYfn0GDYYOGg_9stXZYh04ALDn0HKQTvzJ2mIWGjyHlxRQ8Kyda7wtaLQIBcBUWa3mtbckwCw";
+        String token = "eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MiwidXNlcm5hbWUiOiLmnY7lm5siLCJleHAiOjE1OTAyMTM1NjF9.OXfrVb0Li6GKmyaFhIIDh5bcTFHOmxKrjmtAU6eqhdA9CxPREf4QzCEAGv6sD1mi55bWTO54TSFznVxJsmc78yIJy0H-VlCb75lqM0Vu_7yfZM0FJj3uSIbPtPPH00hOPHRabUzRMoUeMAv8POEX8OdgBTDhnFVZzeDjAk0d0pYWvNpUpWIidQRqu_bbim6ZcobgL7IVQnaDlofof0VC6viHzR4wb19-SdsUo2DKEHUHZjn3zLbZFGds_F_s9i6CPEqKHueN7aXcL8xNqixlZSXEbYT1de-BnFV1EDmAB9HGdInuGfTX2Wa1gLTIuTeirur37OmmDkpVNMKUEG-ZNw";
 
         // 解析token
         Map<String, Object> map = JwtUtils.getInfoFromToken(token, publicKey);

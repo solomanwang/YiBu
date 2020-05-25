@@ -28,4 +28,5 @@ yibu:
       pubkeyPath: D:\\rsa\\yibu\\rsa.pub
       cookieName: YIBU_TOKEN
       notIntercepts:
-        - login
+        - /user/app/login
+        - /user/app/registered
