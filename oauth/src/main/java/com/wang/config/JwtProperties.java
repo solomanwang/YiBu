@@ -47,7 +47,6 @@ public class JwtProperties {
     @PostConstruct
     public void init(){
         try {
-            log.info("公钥路径：{}",pubkeyPath);
             File pubkey = new File(pubkeyPath);
             File prikey = new File(prikeyPath);
             if (!pubkey.exists() || !prikey.exists()){

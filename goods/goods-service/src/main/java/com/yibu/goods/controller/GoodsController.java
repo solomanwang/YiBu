@@ -1,11 +1,12 @@
 package com.yibu.goods.controller;
 
-import com.yibu.goods.enums.GoodsStatusEnum;
 import com.yibu.goods.pojo.Goods;
 import com.yibu.goods.service.GoodsService;
 import com.yibu.web.dto.HttpResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author wzq
@@ -46,5 +47,10 @@ public class GoodsController {
             return HttpResult.success(goods);
         }
         return HttpResult.error("保存失败");
+    }
+
+    @GetMapping("user")
+    public HttpResult<List<Goods>> queryGoodsByUserId(){
+        return HttpResult.success(goodsService.queryGoodsByUserId());
     }
 }
