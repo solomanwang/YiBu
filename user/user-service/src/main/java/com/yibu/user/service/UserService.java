@@ -7,8 +7,6 @@ import com.wang.exception.ExceptionKey;
 import com.wang.exception.WErrorException;
 import com.yibu.user.mapper.UserMapper;
 import com.yibu.user.pojo.User;
-import com.yibu.web.dto.HttpResult;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,13 +24,10 @@ public class UserService extends ServiceImpl<UserMapper, User> {
      * @Param
      * @return
      **/
-    public User queryUserByPhone(String phone, String password) {
+    public User queryUserByPhone(String phone) {
         User user = this.getOne(new QueryWrapper<User>().eq("mobile", phone));
         if (ObjectUtil.isEmpty(user)) {
             throw new WErrorException(ExceptionKey.NOT_FOUND);
-        }
-        if (!StringUtils.equals(password, user.getPassword())) {
-            throw new WErrorException(ExceptionKey.WRONG_PASSWORD);
         }
         return user;
     }

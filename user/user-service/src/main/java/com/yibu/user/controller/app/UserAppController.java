@@ -36,8 +36,8 @@ public class UserAppController {
     }
 
     @PostMapping("login")
-    public HttpResult<User> login(@RequestParam("mobile")String mobile,@RequestParam("password")String password){
-        User user = userService.queryUserByPhone( mobile,password);
+    public HttpResult<User> login(@RequestParam("mobile")String mobile){
+        User user = userService.queryUserByPhone( mobile);
         return HttpResult.success(user);
     }
 

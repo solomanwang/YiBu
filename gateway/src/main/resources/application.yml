@@ -20,7 +20,7 @@ spring:
           uri: lb://goods-service
           predicates:
             - Path=/goods/**
-      default-filters: Auth  #统一的路由拦截，会用Auth作为前缀在拼上GatewayFilterFactory 作为beanName找到定义的filter
+    #  default-filters: Auth  #统一的路由拦截，会用Auth作为前缀在拼上GatewayFilterFactory 作为beanName找到定义的filter
 server:
   port: 10086
 yibu:
