@@ -84,5 +84,9 @@ public class AuthController {
         ProfileResult result = (ProfileResult) principals.getPrimaryPrincipal();
         return HttpResult.success(result);
     }
+    @GetMapping("no_auth")
+    public HttpResult noAuth(){
+        return HttpResult.error("未授权");
+    }
 
 }

@@ -65,9 +65,10 @@ public class ShiroConfig {
         map.put("/auth/accredit","anon");
         map.put("/auth/registered","anon");
         // authc --认证之后访问
-        map.put("/**","authc");
+        map.put("/auth/profile","authc");
         // perms --具有某种权限（推荐使用注解配置授权）
         filterFactoryBean.setFilterChainDefinitionMap(map);
+        filterFactoryBean.setLoginUrl("no_auth");
         return filterFactoryBean;
     }
 
