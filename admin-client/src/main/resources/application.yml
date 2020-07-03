@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  # 连接admin server
+  boot:
+    admin:
+      client:
+        url: http://loaclhost:10010
+server:
+  port: 10020
+# 设置暴露的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    redis:
+      enabled: false

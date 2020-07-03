@@ -3,6 +3,10 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+  boot:
+    admin:
+      client:
+        url: http://loaclhost:10010
   datasource:
     url: jdbc:mysql://localhost:3306/yibu?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
@@ -39,3 +43,14 @@ mybatis-plus:
     # 配置输出日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   type-enums-package: com.yibu.goods.enums
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    redis:
+      enabled: false

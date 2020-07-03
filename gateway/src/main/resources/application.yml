@@ -30,3 +30,12 @@ yibu:
       notIntercepts:
         - /user/app/login
         - /user/app/registered
+# 设置暴露的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
