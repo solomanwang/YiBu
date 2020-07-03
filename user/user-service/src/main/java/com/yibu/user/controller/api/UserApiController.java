@@ -1,9 +1,14 @@
 package com.yibu.user.controller.api;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.yibu.user.pojo.User;
+import com.yibu.user.service.UserService;
+import com.yibu.web.dto.HttpResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author wzq
@@ -14,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user/api")
 public class UserApiController {
 
-    @Value("${server.port}")
-    private int port;
+    @Resource
+    private UserService userService;
 
-    @GetMapping
-    public int get(){
-        return port;
+    @GetMapping("mobile/{mobile}")
+    public HttpResult<User> queryUserByMobile(@PathVariable("mobile")String mobile){
+        return HttpResult.success(userService.queryUserByPhone(mobile));
     }
 }

@@ -1,6 +1,6 @@
 package com.yibu.user.mapper;
 
-import com.yibu.mapper.YBaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yibu.user.pojo.User;
 
 /**
@@ -8,5 +8,5 @@ import com.yibu.user.pojo.User;
  * @date 2020/5/21
  * @DESC
  */
-public interface UserMapper extends YBaseMapper<User> {
+public interface UserMapper extends BaseMapper<User> {
 }
