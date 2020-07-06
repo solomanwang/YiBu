@@ -3,6 +3,9 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+        metadata:
+          management:
+            context-path: '${server.servlet.context-path}/actuator'
   # 连接admin server
   boot:
     admin:
@@ -10,6 +13,8 @@ spring:
         url: http://loaclhost:10010
 server:
   port: 10020
+  servlet:
+    context-path: /admin-client
 # 设置暴露的端点
 management:
   endpoints:
