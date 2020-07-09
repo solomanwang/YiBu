@@ -27,7 +27,7 @@
         <spring.cloud.version>Finchley.RELEASE</spring.cloud.version>
         <spring.cloud.alibaba.version>2.1.1.RELEASE</spring.cloud.alibaba.version>
         <hutool.version>5.3.4</hutool.version>
-        <slf4j.version>1.7.7</slf4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <lombok.version>1.16.18</lombok.version>
         <commons.lang3.version>3.4</commons.lang3.version>
         <fastjson.version>1.2.29</fastjson.version>

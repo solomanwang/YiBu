@@ -10,7 +10,10 @@ spring:
   boot:
     admin:
       client:
-        url: http://loaclhost:10010
+        url: http://loaclhost:10086/admin-server
+#        instance:
+#          service-url: admin-client
+#          management-base-url: admin-client
 server:
   port: 10020
   servlet:

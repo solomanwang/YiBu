@@ -3,13 +3,14 @@ package com.yibu.getaway.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.stereotype.Component;
 
 /**
  * @author wzq
  * @date 2020/5/21
  * @DESC
  */
-//@Component
+@Component
 public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
 
     @Autowired

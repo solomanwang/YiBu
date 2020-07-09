@@ -3,19 +3,22 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-  mail:
-    host: smtp.qq.com
-    username: 286284737@qq.com
-    password: rmzdmoyfmkgebjih
+#  mail:
+#    host: smtp.qq.com
+#    username: 286284737@qq.com
+#    password: rmzdmoyfmkgebjih
   boot:
     admin:
-      notify:
-        mail:
+#      notify:
+#        mail:
 #          to: wzqsoloman914@gmail.com
-          from: 286284737@qq.com
-          to: 286284737@qq.com
+#          from: 286284737@qq.com
+#          to: 286284737@qq.com
+      context-path: /admin-server
 server:
   port: 10010
+#  servlet:
+#    context-path: /admin-server
 management:
   endpoints:
     web:
@@ -24,3 +27,9 @@ management:
   endpoint:
     health:
       show-details: always
+    logfile:
+      enabled: true
+      external-file: D:/workspace/yibu/logs/info_log.2020-07-09.0.log
+logging:
+  file: D:/workspace/yibu/logs/info_log.2020-07-09.0.log
+  config: classpath:logback-spring.xml

@@ -51,6 +51,15 @@ management:
   endpoint:
     health:
       show-details: always
+    logfile:
+      enabled: true
+      external-file: D:/workspace/yibu/logs/info_log.2020-07-09.0.log
   health:
     redis:
       enabled: false
+logging:
+  file:
+    path: D:/workspace/yibu/logs #路径绝对路径才会生效
+#    这里的文件名必须指定
+    name: info_log.2020-07-09.0.log
+  config: classpath:logback-spring.xml
