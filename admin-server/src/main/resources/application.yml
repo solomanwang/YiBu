@@ -6,7 +6,7 @@ spring:
 #  mail:
 #    host: smtp.qq.com
 #    username: 286284737@qq.com
-#    password: rmzdmoyfmkgebjih
+#    password:
   boot:
     admin:
 #      notify:
