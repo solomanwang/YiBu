@@ -29,7 +29,5 @@ management:
       show-details: always
     logfile:
       enabled: true
-      external-file: D:/workspace/yibu/logs/info_log.2020-07-09.0.log
 logging:
-  file: D:/workspace/yibu/logs/info_log.2020-07-09.0.log
   config: classpath:logback-spring.xml
