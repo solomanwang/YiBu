@@ -16,3 +16,7 @@ yibu:
       secret: sf3423jsdf#3$@FDS32
       expire: 30
       cookieName: YIBU_TOKEN
+logging:
+  level:
+    com.wang: debug
+    org.springframework.security: debug

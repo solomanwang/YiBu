@@ -1,9 +1,9 @@
 package com.yibu.user.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yibu.entity.BaseEntity;
 import lombok.Data;
-
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -27,6 +27,7 @@ public class User extends BaseEntity {
     /**
      * 密码
      */
+//    @JsonIgnore
     private String password;
     /**
      * 昵称
@@ -43,6 +44,7 @@ public class User extends BaseEntity {
     /**
      * 盐
      */
+    @JsonIgnore
     private String salt;
     /**
      * 头像

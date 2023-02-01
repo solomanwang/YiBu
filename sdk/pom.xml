@@ -15,6 +15,7 @@
         <module>common</module>
         <module>common-web</module>
         <module>common-data</module>
+        <module>common-jwt</module>
     </modules>
 
 </project>

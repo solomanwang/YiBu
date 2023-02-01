@@ -72,5 +72,10 @@ public class ResultRes<T> implements Serializable {
         this.body = body;
         this.message = message;
     }
-
+    public static ResultRes success(Object body){
+        return new ResultRes(Boolean.TRUE,body,"请求成功");
+    }
+    public static ResultRes fail(String msg){
+        return new ResultRes(Boolean.FALSE,msg);
+    }
 }

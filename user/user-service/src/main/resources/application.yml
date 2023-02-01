@@ -3,24 +3,20 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-  boot:
-    admin:
-      client:
-        url: http://loaclhost:10010
   datasource:
-    url: jdbc:mysql://localhost:3306/yibu?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://10.130.210.113:3306/wangzq?characterEncoding=utf-8&&serverTimezone=Asia/Shanghai&&useSSL=false
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
     sql-script-encoding: utf-8
     driver-class-name: com.mysql.jdbc.Driver
     # sql 文件地址
-#    schema:
-#    - "classpath:db/user.sql"
+    schema:
+    - "classpath:db/user.sql"
 #    data:
 #    - "classpath:db/data.sql"
     # 项目启动加载sql文件
-#    initialization-mode: always
+    initialization-mode: always
 server:
   port: 8080
 #logging:
@@ -43,23 +39,9 @@ mybatis-plus:
     # 配置输出日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   type-enums-package: com.yibu.goods.enums
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: always
-    logfile:
-      enabled: true
-      external-file: D:/workspace/yibu/logs/info_log.2020-07-09.0.log
-  health:
-    redis:
-      enabled: false
 logging:
-  file:
-    path: D:/workspace/yibu/logs #路径绝对路径才会生效
+#  file:
+#    path: D:/workspace/YiBu/user/user-service #路径绝对路径才会生效
 #    这里的文件名必须指定
-    name: info_log.2020-07-09.0.log
-  config: classpath:logback-spring.xml
+#    name: info_log.2020-07-09.0.log
+#  config: classpath:logback-spring.xml

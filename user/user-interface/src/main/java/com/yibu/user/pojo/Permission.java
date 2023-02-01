@@ -20,7 +20,10 @@ public class Permission extends BaseEntity {
      * 权限类型 1为菜单 2为功能 3为API
      */
     private Integer type;
-
+    /**
+     * url
+     */
+    private String url;
     /**
      * 权限编码
      */

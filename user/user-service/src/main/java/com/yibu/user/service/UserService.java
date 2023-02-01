@@ -5,9 +5,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wang.exception.ExceptionKey;
 import com.wang.exception.WErrorException;
+import com.yibu.user.mapper.PermissionMapper;
 import com.yibu.user.mapper.UserMapper;
 import com.yibu.user.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author wzq
@@ -16,6 +20,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService extends ServiceImpl<UserMapper, User> {
+
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      * @Author wzq
@@ -30,6 +37,10 @@ public class UserService extends ServiceImpl<UserMapper, User> {
             throw new WErrorException(ExceptionKey.NOT_FOUND);
         }
         return user;
+    }
+
+    public List<String> selectedRoleByUid(Long uid) {
+        return userMapper.selectedRoleByUid(uid);
     }
 }
 

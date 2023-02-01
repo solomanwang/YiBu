@@ -10,8 +10,8 @@ spring:
           order: 2 # 路由优先级，数字越小代表路由的优先级越高
           predicates:  # 断言 条件判断，返回值市Boolean 转发请求满足的条件
             - Path=/user/**
-          filters:
-            - Auth
+#          filters:
+#            - Auth
         - id: auth-route
           uri: lb://auth-service
           predicates:
@@ -24,10 +24,6 @@ spring:
           uri: lb://admin-server
           predicates:
             - Path=/admin-server/**
-  boot:
-    admin:
-      client:
-        url: http://localhost:10010
 server:
   port: 10086
 yibu:

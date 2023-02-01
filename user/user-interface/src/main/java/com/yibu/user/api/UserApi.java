@@ -5,6 +5,7 @@ import com.yibu.web.dto.HttpResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author wzq
@@ -20,4 +21,7 @@ public interface UserApi {
 
     @GetMapping("user/api/mobile/{mobile}")
     HttpResult<User> queryUserByMobile(@PathVariable("mobile")String mobile);
+
+    @PostMapping("user/api/role/uid")
+    HttpResult<List<String>> selectedRoleByUid(@RequestBody User user);
 }

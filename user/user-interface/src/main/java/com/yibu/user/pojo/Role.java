@@ -1,5 +1,6 @@
 package com.yibu.user.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.yibu.entity.BaseEntity;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class Role extends BaseEntity {
     /**
      * 说明
      */
+    @TableField("desc")
     private String description;
 }

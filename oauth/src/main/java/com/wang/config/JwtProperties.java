@@ -44,22 +44,22 @@ public class JwtProperties {
 
     private PrivateKey privateKey;
 
-    @PostConstruct
-    public void init(){
-        try {
-            File pubkey = new File(pubkeyPath);
-            File prikey = new File(prikeyPath);
-            if (!pubkey.exists() || !prikey.exists()){
-                // 如果不存在生成公钥和私钥
-                RsaUtils.generateKey(pubkeyPath,prikeyPath,secret);
-            }
-            // 读取公钥私钥
-            this.publicKey = RsaUtils.getPublicKey(pubkeyPath);
-            this.privateKey = RsaUtils.getPrivateKey(prikeyPath);
-        }catch (Exception e){
-            log.error("初始化公钥和私钥失败",e);
-            throw new RuntimeException();
-        }
-    }
+//    @PostConstruct
+//    public void init(){
+//        try {
+//            File pubkey = new File(pubkeyPath);
+//            File prikey = new File(prikeyPath);
+//            if (!pubkey.exists() || !prikey.exists()){
+//                // 如果不存在生成公钥和私钥
+//                RsaUtils.generateKey(pubkeyPath,prikeyPath,secret);
+//            }
+//            // 读取公钥私钥
+//            this.publicKey = RsaUtils.getPublicKey(pubkeyPath);
+//            this.privateKey = RsaUtils.getPrivateKey(prikeyPath);
+//        }catch (Exception e){
+//            log.error("初始化公钥和私钥失败",e);
+//            throw new RuntimeException();
+//        }
+//    }
 
 }
