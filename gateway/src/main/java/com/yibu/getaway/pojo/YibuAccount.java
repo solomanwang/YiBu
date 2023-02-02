@@ -1,14 +1,10 @@
-package com.wang.pojo;
+package com.yibu.getaway.pojo;
 
-import com.yibu.user.pojo.User;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -21,23 +17,14 @@ import java.util.stream.Collectors;
  * @Date: 2023-01-30 16:40
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class YibuAccount implements UserDetails {
 
     private Long id;
     private String username;
     private String password;
-//    private List<? extends GrantedAuthority> authorities;
     private List<String> roles;
 
-    public YibuAccount(User user){
-        this.setId(user.getId());
-        this.setUsername(user.getUsername());
-        this.setPassword(user.getPassword());
-    }
-
-     //获取用户角色权限，此处从数据库表Role中获取
+    //获取用户角色权限，此处从数据库表Role中获取
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> auths = new ArrayList<>();
@@ -48,6 +35,10 @@ public class YibuAccount implements UserDetails {
             }
         }
         return auths;
+    }
+
+    public List<String> getRoles() {
+        return roles;
     }
 
     @Override
@@ -69,9 +60,4 @@ public class YibuAccount implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-    public List<String> getRoles() {
-        return roles;
-    }
-
 }
-

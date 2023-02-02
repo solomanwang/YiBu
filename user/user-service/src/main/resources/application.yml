@@ -39,7 +39,7 @@ mybatis-plus:
     # 配置输出日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   type-enums-package: com.yibu.goods.enums
-logging:
+#logging:
 #  file:
 #    path: D:/workspace/YiBu/user/user-service #路径绝对路径才会生效
 #    这里的文件名必须指定

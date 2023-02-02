@@ -14,7 +14,7 @@ import java.util.List;
  * @date 2020/5/21
  * @DESC
  */
-@RequestMapping("user/app/")
+@RequestMapping("/app/")
 @RestController
 public class UserAppController {
 

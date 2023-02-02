@@ -89,7 +89,7 @@ public class JwtUtils {
         try {
 
             claims = Jwts.parser().setSigningKey(APP_SECRET)
-                    .parseClaimsJws(StringUtils.substringAfter(jwt, TOKEN_PREFIX)).getBody();
+                    .parseClaimsJws(jwt).getBody();
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -111,8 +111,8 @@
         <appender-ref ref="debug_appender"/>
     </logger>
 
-    <logger name="com.caeri.project.seed" level="DEBUG" />
-    <logger name="com.caeri.file.system" level="DEBUG" />
+    <logger name="com.yibu" level="DEBUG" />
+    <logger name="com.alibaba.nacos" level="INFO" />
 
     <logger name="com.startstruggle.demo" level="INFO" />
     <logger name="com.startstruggle.framework" level="INFO" />

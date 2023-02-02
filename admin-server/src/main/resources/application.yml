@@ -3,31 +3,9 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-#  mail:
-#    host: smtp.qq.com
-#    username: 286284737@qq.com
-#    password:
-  boot:
-    admin:
-#      notify:
-#        mail:
-#          to: wzqsoloman914@gmail.com
-#          from: 286284737@qq.com
-#          to: 286284737@qq.com
-      context-path: /admin-server
 server:
   port: 10010
-#  servlet:
-#    context-path: /admin-server
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: always
-    logfile:
-      enabled: true
-logging:
-  config: classpath:logback-spring.xml
+  servlet:
+    context-path: /admin
+#logging:
+#  config: classpath:logback-spring.xml

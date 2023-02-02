@@ -14,7 +14,7 @@ import java.util.List;
  * Describe:
  */
 @RestController
-@RequestMapping("/user/api")
+@RequestMapping("/api")
 public class UserApiController {
 
     @Resource

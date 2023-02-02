@@ -2,11 +2,18 @@ package com.yibu.auth;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
+import com.alibaba.fastjson.JSON;
+import com.wang.AuthApplication;
+import com.wang.pojo.YibuAccount;
+import com.wang.service.AuthService;
 import com.wang.util.JwtUtils;
 import com.wang.util.RsaUtils;
+import io.jsonwebtoken.Claims;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -18,7 +25,8 @@ import java.util.Map;
  * @date 2020/5/21
  * @DESC
  */
-@SpringBootTest
+@SpringBootTest(classes = AuthApplication.class)
+@RunWith(SpringRunner.class)
 public class JwtTest {
     private static final String pubKeyPath = "D:\\rsa\\yibu\\rsa.pub";
 
@@ -33,7 +41,7 @@ public class JwtTest {
         RsaUtils.generateKey(pubKeyPath, priKeyPath, "sf3423jsdf#3$@FDS32");
     }
 
-    @Before
+//    @Before
     public void testGetRsa() throws Exception {
         this.publicKey = RsaUtils.getPublicKey(pubKeyPath);
         this.privateKey = RsaUtils.getPrivateKey(priKeyPath);
@@ -62,5 +70,13 @@ public class JwtTest {
     public void test(){
         DateTime x = DateUtil.parseDate("1987-01-01");
         System.out.println(x.getTime());
+    }
+    @Test
+    public void testParseToken2() throws Exception {
+        String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3YW5nIiwianRpIjoiMyIsInN1YiI6IntcImFjY291bnROb25FeHBpcmVkXCI6dHJ1ZSxcImFjY291bnROb25Mb2NrZWRcIjp0cnVlLFwiYXV0aG9yaXRpZXNcIjpbe1wiYXV0aG9yaXR5XCI6XCJST0xFX1VTRVJcIn1dLFwiY3JlZGVudGlhbHNOb25FeHBpcmVkXCI6dHJ1ZSxcImVuYWJsZWRcIjp0cnVlLFwiaWRcIjozLFwicGFzc3dvcmRcIjpcIiQyYSQxMCRKaUNXYVA1QUtGV1NTSGtBUkY3eU51b2FsanU0RFdxS2xPald6WWFsb1ZwV014SE8zYm56S1wiLFwicm9sZXNcIjpbXCJST0xFX1VTRVJcIl0sXCJ1c2VybmFtZVwiOlwidGVzdFwifSIsImlhdCI6MTY3NTMyNTI4NCwiZXhwIjoxNjc1MzI4ODg0fQ.P-1UIUpnYMp_In-wC1EIrXmqq4lhvVNylnZ3_xnaMYc";
+
+        // 解析token
+        Claims claims = com.yibu.jwt.util.JwtUtils.parseJWT(token);
+        System.out.println(claims.getSubject());
     }
 }

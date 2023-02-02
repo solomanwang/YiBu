@@ -58,7 +58,8 @@ public class AuthService implements UserDetailsService {
         HttpResult<List<String>> roleByUid = userFeign.selectedRoleByUid(result.getResult());
         if (null == roleByUid || !roleByUid.isSuccess() ) throw new UserDeniedAuthorizationException("查询用户权限失败");
         YibuAccount account = new YibuAccount(result.getResult());
-        account.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList(StringUtils.join(roleByUid.getResult(),",")));
+        account.setRoles(roleByUid.getResult());
+//        account.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList(StringUtils.join(roleByUid.getResult(),",")));
         return account;
     }
 }
