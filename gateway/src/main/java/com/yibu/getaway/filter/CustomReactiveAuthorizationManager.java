@@ -5,8 +5,6 @@ import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.security.access.ConfigAttribute;
-import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.authorization.ReactiveAuthorizationManager;
 import org.springframework.security.core.Authentication;
@@ -66,7 +64,7 @@ public class CustomReactiveAuthorizationManager implements ReactiveAuthorization
                 .flatMapIterable(Authentication::getAuthorities)
                 .map(GrantedAuthority::getAuthority)
                 .any(role -> {
-                    log.debug("角色：", role);
+                    log.debug("path:{},需要的 role：{},用户的角色：{}",path,authorities,role);
                     return authorities.contains(role);
                 })
                 .map(AuthorizationDecision::new)

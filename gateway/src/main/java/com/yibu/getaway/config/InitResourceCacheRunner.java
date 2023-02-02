@@ -2,11 +2,7 @@ package com.yibu.getaway.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.access.ConfigAttribute;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * @ClassName : InitResourceCacheRunner

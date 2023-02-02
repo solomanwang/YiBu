@@ -1,6 +1,5 @@
 package com.yibu.getaway.filter;
 
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferFactory;
 import org.springframework.http.HttpStatus;
