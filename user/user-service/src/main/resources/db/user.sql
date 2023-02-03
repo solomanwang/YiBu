@@ -43,7 +43,8 @@ CREATE TABLE `user`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '会员' ROW_FORMAT = Dynamic;
 
-INSERT INTO `user` VALUES (1, '10', 'admin', '$2a$10$8HssvfpyTBXv4EdLd0oGQuyOVw17zyd0kqMCZ8F/s4LqhuKC1VX/i', 'admin','18544889956',null,'&hjdyendk^980kemc',null, 1,null,1, 1, 1, 1, NULL, NULL, 0);
+INSERT INTO `user` VALUES (1, '10', 'admin', '$2a$10$VvuUMRqJCRXm8AfCQ0vhB.hzZ/zCtdcowFWF1mJMrhPJaCxjjezmO', 'admin','18544889956',null,'&hjdyendk^980kemc',null, 1,null,1, 1, 1, 1, NULL, NULL, 0);
+INSERT INTO `user` VALUES (3, '2', 'test', '$2a$10$JiCWaP5AKFWSSHkARF7yNuoalju4DWqKlOjWzYaloVpWMxHO3bnzK', 'test','18680822415',null,'&hjdydsgdk^980ewtmc',null, 1,null,1, 1, 1, 1, NULL, NULL, 0);
 
 DROP TABLE IF EXISTS `permission`;
 CREATE TABLE `permission`  (
