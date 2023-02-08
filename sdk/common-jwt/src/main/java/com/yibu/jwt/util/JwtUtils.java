@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;
 
@@ -67,7 +66,7 @@ public class JwtUtils {
      * 从token中获取登录用户信息
      * @return userInfo json
      */
-    public String getUserInfoFromToken(String token) {
+    public static String getUserInfoFromToken(String token) {
         String userInfo;
         try {
             Claims claims = parseJWT(token);
@@ -78,6 +77,7 @@ public class JwtUtils {
         return userInfo;
     }
 
+
     /**
      *
      * 解析JWT字符串
@@ -86,13 +86,13 @@ public class JwtUtils {
      */
     public static Claims parseJWT(String jwt){
         Claims claims = null;
-        try {
+//        try {
 
             claims = Jwts.parser().setSigningKey(APP_SECRET)
                     .parseClaimsJws(jwt).getBody();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
         return claims;
     }
 

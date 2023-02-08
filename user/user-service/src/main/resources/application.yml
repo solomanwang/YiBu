@@ -11,12 +11,12 @@ spring:
     sql-script-encoding: utf-8
     driver-class-name: com.mysql.jdbc.Driver
     # sql 文件地址
-    schema:
-    - "classpath:db/user.sql"
+#    schema:
+#    - "classpath:db/user.sql"
 #    data:
 #    - "classpath:db/data.sql"
     # 项目启动加载sql文件
-    initialization-mode: always
+#    initialization-mode: always
 server:
   port: 8080
 #logging:

@@ -23,7 +23,7 @@ spring:
         - id: adminserver-route
           uri: lb://admin-server
           predicates:
-            - Path=/admin-server/**
+            - Path=/admin/**
 server:
   port: 10086
 yibu:

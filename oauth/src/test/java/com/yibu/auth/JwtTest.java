@@ -2,14 +2,10 @@ package com.yibu.auth;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
-import com.alibaba.fastjson.JSON;
 import com.wang.AuthApplication;
-import com.wang.pojo.YibuAccount;
-import com.wang.service.AuthService;
 import com.wang.util.JwtUtils;
 import com.wang.util.RsaUtils;
 import io.jsonwebtoken.Claims;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -53,7 +49,7 @@ public class JwtTest {
         map.put("id", "1");
         map.put("username", "wzq");
         // 生成token
-        String token = JwtUtils.generateToken(map, privateKey, 5);
+        String token = JwtUtils.generateTokenRsa(map, privateKey, 5);
         System.out.println("token = " + token);
     }
 
@@ -76,7 +72,7 @@ public class JwtTest {
         String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3YW5nIiwianRpIjoiMyIsInN1YiI6IntcImFjY291bnROb25FeHBpcmVkXCI6dHJ1ZSxcImFjY291bnROb25Mb2NrZWRcIjp0cnVlLFwiYXV0aG9yaXRpZXNcIjpbe1wiYXV0aG9yaXR5XCI6XCJST0xFX1VTRVJcIn1dLFwiY3JlZGVudGlhbHNOb25FeHBpcmVkXCI6dHJ1ZSxcImVuYWJsZWRcIjp0cnVlLFwiaWRcIjozLFwicGFzc3dvcmRcIjpcIiQyYSQxMCRKaUNXYVA1QUtGV1NTSGtBUkY3eU51b2FsanU0RFdxS2xPald6WWFsb1ZwV014SE8zYm56S1wiLFwicm9sZXNcIjpbXCJST0xFX1VTRVJcIl0sXCJ1c2VybmFtZVwiOlwidGVzdFwifSIsImlhdCI6MTY3NTMyNTI4NCwiZXhwIjoxNjc1MzI4ODg0fQ.P-1UIUpnYMp_In-wC1EIrXmqq4lhvVNylnZ3_xnaMYc";
 
         // 解析token
-        Claims claims = com.yibu.jwt.util.JwtUtils.parseJWT(token);
+        Claims claims = JwtUtils.parseJWTSecret(token);
         System.out.println(claims.getSubject());
     }
 }

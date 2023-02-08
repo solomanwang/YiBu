@@ -9,8 +9,6 @@ import com.yibu.user.pojo.User;
 import com.yibu.web.dto.HttpResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.common.exceptions.UserDeniedAuthorizationException;
@@ -43,7 +41,7 @@ public class AuthService implements UserDetailsService {
             Map<String,Object> map = new HashMap<>();
             map.put("id",user.getId());
             map.put("username",user.getUsername());
-            return JwtUtils.generateToken(map, jwtProperties.getPrivateKey(), jwtProperties.getExpire());
+            return JwtUtils.generateTokenRsa(map, jwtProperties.getPrivateKey(), jwtProperties.getExpire());
     }
 
     @Override

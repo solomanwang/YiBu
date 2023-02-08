@@ -1,9 +1,6 @@
 package com.yibu.getaway.config;
 
-import com.yibu.getaway.filter.CustomReactiveAuthorizationManager;
-import com.yibu.getaway.filter.CustomizeAccessDeniedHandler;
-import com.yibu.getaway.filter.DefaultAuthenticationEntryPoint;
-import com.yibu.getaway.filter.DefaultSecurityContextRepository;
+import com.yibu.getaway.filter.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,6 +49,11 @@ public class ResourceServerConfig {
                         //自定义未认证的处理
                         .authenticationEntryPoint(defaultAuthenticationEntryPoint));
         return http.build();
+    }
+
+    @Bean
+    public GlobalExceptionConfiguration globalExceptionHandler() {
+        return new GlobalExceptionConfiguration();
     }
 
 }

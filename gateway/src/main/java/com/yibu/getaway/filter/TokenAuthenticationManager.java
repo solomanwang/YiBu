@@ -1,8 +1,8 @@
 package com.yibu.getaway.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.wang.util.JwtUtils;
 import com.yibu.getaway.pojo.YibuAccount;
-import com.yibu.jwt.util.JwtUtils;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +24,7 @@ public class TokenAuthenticationManager  implements ReactiveAuthenticationManage
     public Mono<Authentication> authenticate(Authentication authentication) {
         String token = authentication.getPrincipal().toString();
         Mono<Authentication> tokenMono = Mono.just(authentication)
-                .map(auth -> JwtUtils.parseJWT(token))
+                .map(auth -> JwtUtils.parseJWTSecret(token))
                 .map(claims -> {
                     YibuAccount obj = JSON.parseObject(claims.getSubject(), YibuAccount.class);
                     return new UsernamePasswordAuthenticationToken(

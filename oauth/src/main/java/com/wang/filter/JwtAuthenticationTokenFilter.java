@@ -3,14 +3,12 @@ package com.wang.filter;
 import com.alibaba.fastjson.JSON;
 import com.wang.pojo.YibuAccount;
 import com.wang.service.AuthService;
-import com.yibu.jwt.util.JwtUtils;
-import com.wang.service.AuthService;
+import com.wang.util.JwtUtils;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -40,7 +38,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             return;
         }
         // 解析token
-        Claims claims = JwtUtils.parseJWT(token);
+        Claims claims = JwtUtils.parseJWTSecret(token);
         if (claims!=null){
             YibuAccount account = JSON.parseObject(claims.getSubject(), YibuAccount.class);
 
